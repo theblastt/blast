@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLAST | FiveM Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        /* Modern Dark Purple Theme */
         :root {
             --primary-purple: #8a2be2;
             --dark-bg: #0d0d12;
@@ -14,18 +14,18 @@
         }
 
         html {
-            scroll-behavior: smooth; /* This makes the clicking go down smoothly */
+            scroll-behavior: smooth;
         }
 
         body {
             background-color: var(--dark-bg);
             color: #ffffff;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Inter', sans-serif; /* Clean, bold modern font */
             margin: 0;
             overflow-x: hidden;
         }
 
-        /* Navigation */
+        /* Bold Navigation */
         nav {
             background: rgba(13, 13, 18, 0.95);
             padding: 20px;
@@ -33,26 +33,26 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 2px solid var(--primary-purple);
+            border-bottom: 3px solid var(--primary-purple);
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 40px;
             backdrop-filter: blur(10px);
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 900; /* Extra Bold */
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             transition: 0.3s;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         nav a:hover {
             color: #ff00ff;
-            text-shadow: 0 0 10px #ff00ff;
+            text-shadow: 0 0 15px #ff00ff;
         }
 
         /* Hero Section */
@@ -62,7 +62,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(13, 13, 18, 0.7), rgba(13, 13, 18, 0.8)), 
+            background: linear-gradient(rgba(13, 13, 18, 0.6), rgba(13, 13, 18, 0.9)), 
                         url('https://wallpaperaccess.com/full/2311543.jpg'); 
             background-size: cover;
             background-position: center;
@@ -70,12 +70,13 @@
         }
 
         .blast-logo {
-            font-size: clamp(3rem, 10vw, 8rem);
+            font-family: 'Black Ops One', cursive; /* Military/Action bold font */
+            font-size: clamp(4rem, 12vw, 9rem);
             font-weight: 900;
             background: var(--blast-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.5));
+            filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.8));
             margin: 0;
             text-transform: uppercase;
         }
@@ -90,31 +91,35 @@
         .card {
             background: var(--card-bg);
             border-radius: 15px;
-            padding: 40px;
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease, border 0.3s ease;
+            padding: 50px;
+            border: 2px solid rgba(138, 43, 226, 0.4);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+            transition: all 0.4s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-purple);
+            transform: translateY(-10px);
+            border-color: #ff00ff;
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.2);
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 900;
             text-align: center;
             background: var(--blast-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
-        /* Leadership Grid */
+        /* Bolder Leadership Section */
         .leadership-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 40px;
         }
 
         .profile-box {
@@ -123,55 +128,76 @@
         }
 
         .profile-photo {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 3px solid var(--primary-purple);
-            margin: 0 auto 20px;
+            border: 4px solid var(--primary-purple);
+            margin: 0 auto 25px;
             object-fit: cover;
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+            box-shadow: 0 0 25px rgba(138, 43, 226, 0.6);
         }
 
         .role-tag {
             background: var(--primary-purple);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
+            padding: 8px 25px;
+            border-radius: 5px; /* Boxier for a tougher look */
+            font-size: 1rem;
+            font-weight: 900;
             text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin: 10px 0;
+            color: #ffffff;
+        }
+
+        .profile-box p {
+            font-weight: 600; /* Bolder description text */
+            color: #ccc;
+            line-height: 1.6;
         }
 
         .btn {
             background: var(--blast-gradient);
-            padding: 15px 40px;
+            padding: 18px 50px;
             color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            border-radius: 5px;
+            font-weight: 900;
+            text-transform: uppercase;
             display: inline-block;
             margin-top: 30px;
             transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+            letter-spacing: 2px;
         }
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 25px rgba(255, 0, 255, 0.5);
-        }
-
-        /* Credits Section */
+        /* Credits Section (HAMAQAZ) */
         .credits-box {
             margin-top: 50px;
-            padding: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            font-style: italic;
-            color: #888;
+            padding: 30px;
+            border: 1px dashed var(--primary-purple);
+            background: rgba(138, 43, 226, 0.05);
+            border-radius: 10px;
+        }
+
+        .credits-box h3 {
+            background: var(--blast-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
         }
 
         footer {
             text-align: center;
             padding: 60px 20px;
             background: #050508;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -181,12 +207,12 @@
         <a href="#home">Home</a>
         <a href="#leadership">Leadership</a>
         <a href="#rules">Rules</a>
-        <a href="#credits">Credits</a>
+        <a href="#credits">Dev</a>
     </nav>
 
     <section id="home" class="hero">
         <h1 class="blast-logo">Blast Community</h1>
-        <p style="font-size: 1.2rem; letter-spacing: 5px; color: #aaa;">POWER • RESPECT • CONTROL</p>
+        <p style="font-size: 1.4rem; font-weight: 900; letter-spacing: 6px; color: #fff; text-shadow: 0 0 10px #000;">POWER • RESPECT • CONTROL</p>
         <a href="https://discord.gg/SX3QufrXmw" target="_blank" class="btn">JOIN THE FAMILY</a>
     </section>
 
@@ -212,26 +238,26 @@
 
     <section id="rules" class="content-section">
         <div class="card">
-            <h2>THE CODE OF CONDUCT</h2>
-            <ul style="list-style: none; padding: 0; line-height: 2.5; font-size: 1.1rem;">
-                <li>🛡️ <span style="color: var(--primary-purple);">LOYALTY:</span> We stand as one. No betrayal.</li>
-                <li>🤫 <span style="color: var(--primary-purple);">SILENCE:</span> We don't speak to the LSPD.</li>
-                <li>👑 <span style="color: var(--primary-purple);">RESPECT:</span> Follow the chain of command.</li>
-                <li>🎨 <span style="color: var(--primary-purple);">COLORS:</span> Represent the purple with pride.</li>
+            <h2>THE CODE</h2>
+            <ul style="list-style: none; padding: 0; line-height: 2.5; font-size: 1.3rem; font-weight: 800;">
+                <li>🛡️ LOYALTY: <span style="font-weight: 400; color: #aaa;">We stand as one. No betrayal.</span></li>
+                <li>🤫 SILENCE: <span style="font-weight: 400; color: #aaa;">We don't speak to the LSPD.</span></li>
+                <li>👑 RESPECT: <span style="font-weight: 400; color: #aaa;">Follow the chain of command.</span></li>
+                <li>🎨 COLORS: <span style="font-weight: 400; color: #aaa;">Represent the purple with pride.</span></li>
             </ul>
         </div>
     </section>
 
     <section id="credits" class="content-section" style="text-align: center;">
         <div class="credits-box">
-            <p>This digital headquarters was engineered by</p>
-            <h3 style="color: white; letter-spacing: 2px;">YOUR NAME / HAMAQAZ</h3>
-            <p style="font-size: 0.8rem;">Blast Development Division &copy; 2026</p>
+            <p style="font-weight: 900; text-transform: uppercase; color: #888;">System Architect</p>
+            <h3>HAMAQAZ</h3>
+            <p style="font-size: 0.9rem; font-weight: 700;">Blast Development Division // 2026</p>
         </div>
     </section>
 
     <footer>
-        <p style="opacity: 0.4;">© 2026 BLAST COMMUNITY | ALL RIGHTS RESERVED</p>
+        <p style="opacity: 0.6;">© 2026 BLAST COMMUNITY | ESTABLISHED IN LOS SANTOS</p>
     </footer>
 
 </body>
