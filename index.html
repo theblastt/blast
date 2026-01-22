@@ -108,7 +108,6 @@
             transition: all 0.4s ease;
         }
 
-        /* Enhanced Text Shadows */
         h2 {
             font-size: 3.5rem;
             font-weight: 900;
@@ -119,7 +118,6 @@
             margin-bottom: 50px;
             text-transform: uppercase;
             letter-spacing: 5px;
-            /* 3D text shadow look */
             text-shadow: 4px 4px 0px rgba(0,0,0,0.3);
             filter: drop-shadow(0 0 10px rgba(138, 43, 226, 0.4));
         }
@@ -186,7 +184,7 @@
             margin-top: 30px;
             transition: 0.3s;
             letter-spacing: 2px;
-            box-shadow: 0 10px 0px #4b0082; /* 3D button effect */
+            box-shadow: 0 10px 0px #4b0082;
         }
 
         .btn:hover {
@@ -197,10 +195,51 @@
 
         footer {
             text-align: center;
-            padding: 60px 20px;
+            padding: 40px 20px;
             background: #050508;
             font-weight: 700;
             border-top: 2px solid rgba(138, 43, 226, 0.2);
+        }
+
+        /* SMALL ARCHITECT BAR AT THE BOTTOM */
+        .dev-credits {
+            background: #000;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border-top: 1px solid #111;
+        }
+
+        .dev-icon {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 1px solid var(--primary-purple);
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .dev-name {
+            color: #8a2be2;
+            font-weight: 900;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .dev-credits:hover .dev-name {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        .dev-credits:hover .dev-icon {
+            transform: scale(1.2) rotate(10deg);
+            border-color: #ff00ff;
         }
     </style>
 </head>
@@ -209,8 +248,7 @@
     <nav>
         <a href="#home">Home</a>
         <a href="#leadership">Leadership</a>
-        <a href="#rules">Rules</a>
-        <a href="#credits">Dev</a>
+        <a href="#rules">About Us</a>
     </nav>
 
     <section id="home" class="hero">
@@ -219,7 +257,8 @@
         <a href="https://discord.gg/SX3QufrXmw" target="_blank" class="btn">JOIN THE FAMILY</a>
     </section>
 
-    <div style="background: var(--section-gradient);"> <section id="leadership" class="content-section">
+    <div style="background: var(--section-gradient);"> 
+        <section id="leadership" class="content-section">
             <div class="card">
                 <h2>The Leaders</h2>
                 <div class="leadership-container">
@@ -243,27 +282,23 @@
             <div class="card">
                 <h2>About Us</h2>
                 <ul class="rules-list" style="list-style: none; padding: 0; line-height: 2.5; font-size: 1.4rem; font-weight: 900;">
-                    <li>🛡️ Loyalty <span style="font-weight: 400; color: #aaa;">We are more than brothers. We are family</span></li>
-                    <li>🤫 Trust: <span style="font-weight: 400; color: #aaa;">BrotherHood Runs In Our Blood.</span></li>
-                    <li>👑 Respect: <span style="font-weight: 400; color: #aaa;">Respect Is Our Top Priority</span></li>
-                    <li>🎨 Blast: <span style="font-weight: 400; color: #aaa;">Our Blood Is Purple.</span></li>
+                    <li>🛡️ Loyalty: <span style="font-weight: 400; color: #aaa;">We are more than brothers. We are family.</span></li>
+                    <li>🤫 Trust: <span style="font-weight: 400; color: #aaa;">Brotherhood runs in our blood.</span></li>
+                    <li>👑 Respect: <span style="font-weight: 400; color: #aaa;">Respect is our top priority.</span></li>
+                    <li>🎨 Blast: <span style="font-weight: 400; color: #aaa;">Our blood is purple.</span></li>
                 </ul>
             </div>
         </section>
-
-        <section id="credits" class="content-section" style="text-align: center;">
-            <div class="credits-box">
-                <p style="font-weight: 900; text-transform: uppercase; color: #888; letter-spacing: 3px;">System Architect</p>
-                <h3 style="font-size: 3rem; margin: 10px 0;">HAMAQAZ</h3>
-                <p style="font-size: 0.9rem; font-weight: 700; opacity: 0.5;">Blast Development Division // 2026</p>
-            </div>
-        </section>
-
     </div>
 
     <footer>
-        <p style="opacity: 0.6;">© 2026 BLAST COMMUNITY | ESTABLISHED IN KURDISTAN</p>
+        <p style="opacity: 0.6; font-size: 0.9rem;">© 2026 BLAST COMMUNITY | ESTABLISHED IN KURDISTAN</p>
     </footer>
+
+    <div class="dev-credits">
+        CREDITS: 
+        <img src="your-pfp.jpg" alt="Dev" class="dev-icon"> <span class="dev-name">HAMAQAZ</span>
+    </div>
 
 </body>
 </html>
