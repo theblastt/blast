@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLAST | FiveM Official</title>
+    <style>
+        /* Modern Dark Purple Theme */
+        :root {
+            --primary-purple: #8a2be2;
+            --dark-bg: #0d0d12;
+            --card-bg: #1a1a2e;
+            --blast-gradient: linear-gradient(90deg, #ff00ff, #8a2be2, #00d4ff);
+        }
+
+        html {
+            scroll-behavior: smooth; /* This makes the clicking go down smoothly */
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(13, 13, 18, 0.95);
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--primary-purple);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(13, 13, 18, 0.7), rgba(13, 13, 18, 0.8)), 
+                        url('https://wallpaperaccess.com/full/2311543.jpg'); 
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+
+        .blast-logo {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            background: var(--blast-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(138, 43, 226, 0.5));
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 120px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, border 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-purple);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            background: var(--blast-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+        }
+
+        /* Leadership Grid */
+        .leadership-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .profile-box {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid var(--primary-purple);
+            margin: 0 auto 20px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+        }
+
+        .role-tag {
+            background: var(--primary-purple);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn {
+            background: var(--blast-gradient);
+            padding: 15px 40px;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 30px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 25px rgba(255, 0, 255, 0.5);
+        }
+
+        /* Credits Section */
+        .credits-box {
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-style: italic;
+            color: #888;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 20px;
+            background: #050508;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#rules">Rules</a>
+        <a href="#credits">Credits</a>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1 class="blast-logo">Blast Community</h1>
+        <p style="font-size: 1.2rem; letter-spacing: 5px; color: #aaa;">POWER • RESPECT • CONTROL</p>
+        <a href="https://discord.gg/SX3QufrXmw" target="_blank" class="btn">JOIN THE FAMILY</a>
+    </section>
+
+    <section id="leadership" class="content-section">
+        <div class="card">
+            <h2>COMMANDING OFFICERS</h2>
+            <div class="leadership-container">
+                <div class="profile-box">
+                    <img src="owner.jpg" alt="Founder" class="profile-photo">
+                    <div class="role-tag">Founder</div>
+                    <h3>[Founder Name]</h3>
+                    <p>The tactical mind behind the movement. Absolute loyalty, absolute power.</p>
+                </div>
+                <div class="profile-box">
+                    <img src="manager.jpg" alt="Manager" class="profile-photo">
+                    <div class="role-tag">Manager</div>
+                    <h3>[Manager Name]</h3>
+                    <p>Overseeing operations and ensuring the Blast legacy continues daily.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rules" class="content-section">
+        <div class="card">
+            <h2>THE CODE OF CONDUCT</h2>
+            <ul style="list-style: none; padding: 0; line-height: 2.5; font-size: 1.1rem;">
+                <li>🛡️ <span style="color: var(--primary-purple);">LOYALTY:</span> We stand as one. No betrayal.</li>
+                <li>🤫 <span style="color: var(--primary-purple);">SILENCE:</span> We don't speak to the LSPD.</li>
+                <li>👑 <span style="color: var(--primary-purple);">RESPECT:</span> Follow the chain of command.</li>
+                <li>🎨 <span style="color: var(--primary-purple);">COLORS:</span> Represent the purple with pride.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="credits" class="content-section" style="text-align: center;">
+        <div class="credits-box">
+            <p>This digital headquarters was engineered by</p>
+            <h3 style="color: white; letter-spacing: 2px;">YOUR NAME / HAMAQAZ</h3>
+            <p style="font-size: 0.8rem;">Blast Development Division &copy; 2026</p>
+        </div>
+    </section>
+
+    <footer>
+        <p style="opacity: 0.4;">© 2026 BLAST COMMUNITY | ALL RIGHTS RESERVED</p>
+    </footer>
+
+</body>
+</html>
