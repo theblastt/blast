@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Blast Community</title>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Inter:wght@900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #8a2be2;
+            --blast-gradient: linear-gradient(90deg, #ff00ff, #8a2be2, #00d4ff);
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden; 
+        }
+
+        /* Full Screen Wrapper */
+        .viewer-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, #1a1a2e 0%, #000000 100%);
+        }
+
+        /* The Image */
+        #display-img {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.3);
+            border-radius: 10px;
+        }
+
+        /* Navigation Arrows */
+        .nav-zone {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 15%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 10;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 5rem;
+            user-select: none;
+        }
+
+        .nav-zone:hover {
+            background: rgba(138, 43, 226, 0.1);
+            color: #ff00ff;
+            text-shadow: 0 0 20px #ff00ff;
+        }
+
+        .left-zone { left: 0; }
+        .right-zone { right: 0; }
+
+        /* Header UI */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.9), transparent);
+            z-index: 20;
+            box-sizing: border-box;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            border: 2px solid var(--primary-purple);
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: 0.3s;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-purple);
+            box-shadow: 0 0 20px var(--primary-purple);
+        }
+
+        .page-title {
+            font-family: 'Black Ops One', cursive;
+            background: var(--blast-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.8rem;
+            letter-spacing: 3px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <a href="index.html" class="back-btn">← EXIT GALLERY</a>
+        <div class="page-title">BLAST GALLERY</div>
+        <div style="width: 140px;"></div> </div>
+
+    <div class="viewer-container">
+        <div class="nav-zone left-zone" onclick="changeImage(-1)">&#10094;</div>
+        
+        <img id="display-img" src="photo1.jpg" alt="Blast Community Gallery">
+        
+        <div class="nav-zone right-zone" onclick="changeImage(1)">&#10095;</div>
+    </div>
+
+    <script>
+        /* INSTRUCTIONS:
+           Add your GitHub image filenames to the list below.
+           Make sure the names match exactly (e.g., 'image1.png' vs 'image1.PNG').
+        */
+        const images = [
+            'photo1.jpg',
+            'photo2.jpg',
+            'photo3.jpg',
+            'photo4.jpg'
+        ];
+
+        let index = 0;
+        const imgElement = document.getElementById('display-img');
+
+        function changeImage(dir) {
+            imgElement.style.opacity = '0';
+            imgElement.style.transform = 'scale(0.98)';
+
+            setTimeout(() => {
+                index += dir;
+                if (index >= images.length) index = 0;
+                if (index < 0) index = images.length - 1;
+
+                imgElement.src = images[index];
+                imgElement.style.opacity = '1';
+                imgElement.style.transform = 'scale(1)';
+            }, 250);
+        }
+
+        // Keyboard support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "ArrowLeft") changeImage(-1);
+            if (e.key === "ArrowRight") changeImage(1);
+            if (e.key === "Escape") window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
