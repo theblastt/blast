@@ -17,7 +17,7 @@
             margin: 0; padding: 0;
             background-color: var(--dark-bg);
             color: #ffffff;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Tahoma', sans-serif; /* Added Tahoma for better Kurdish rendering */
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -94,29 +94,37 @@
             color: #fff;
             margin-bottom: 5px;
             text-transform: uppercase;
+            font-weight: 900;
         }
 
+        /* --- Bolder Kurdish Styling --- */
         .ku-title {
-            color: #ff00ff;
-            font-size: 1.4rem;
+            color: #00d4ff;
+            font-size: 1.6rem;
             margin-bottom: 15px;
             display: block;
             direction: rtl;
+            font-weight: 900; /* Extra bold */
+            text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
         }
 
         .desc-en {
-            color: #eee;
+            color: #ffffff;
             line-height: 1.6;
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
         }
 
         .desc-ku {
-            color: #aaa;
-            line-height: 1.6;
-            font-weight: 400;
+            color: #eeeeee; /* Brighter white for better visibility */
+            line-height: 1.8;
+            font-weight: 700; /* Much bolder */
             direction: rtl;
-            font-size: 0.95rem;
+            font-size: 1.2rem; /* Larger font size */
+            background: rgba(255, 255, 255, 0.05); /* Subtle background to make text pop */
+            padding: 10px;
+            border-radius: 10px;
         }
 
         .join-footer {
@@ -168,7 +176,7 @@
     <div class="container">
         <div class="header-box">
             <h1>WHY JOIN US?</h1>
-            <p style="color: #8a2be2; font-weight: 900; letter-spacing: 2px; margin-top: 10px;">بۆچی پەیوەندیمان پێوە دەکەیت؟</p>
+            <p style="color: #ff00ff; font-weight: 900; font-size: 1.8rem; letter-spacing: 2px; margin-top: 10px;">بۆچی پەیوەندیمان پێوە دەکەیت؟</p>
         </div>
 
         <div class="grid">
