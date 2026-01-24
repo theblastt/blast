@@ -17,7 +17,7 @@
             margin: 0; padding: 0;
             background-color: var(--dark-bg);
             color: #ffffff;
-            font-family: 'Inter', 'Tahoma', sans-serif; /* Added Tahoma for better Kurdish rendering */
+            font-family: 'Inter', 'Tahoma', sans-serif;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -97,14 +97,13 @@
             font-weight: 900;
         }
 
-        /* --- Bolder Kurdish Styling --- */
         .ku-title {
             color: #00d4ff;
             font-size: 1.6rem;
             margin-bottom: 15px;
             display: block;
             direction: rtl;
-            font-weight: 900; /* Extra bold */
+            font-weight: 900;
             text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
         }
 
@@ -117,14 +116,20 @@
         }
 
         .desc-ku {
-            color: #eeeeee; /* Brighter white for better visibility */
+            color: #eeeeee;
             line-height: 1.8;
-            font-weight: 700; /* Much bolder */
+            font-weight: 700;
             direction: rtl;
-            font-size: 1.2rem; /* Larger font size */
-            background: rgba(255, 255, 255, 0.05); /* Subtle background to make text pop */
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.05);
             padding: 10px;
             border-radius: 10px;
+        }
+
+        /* Red text for the new salary highlight */
+        .highlight-red {
+            color: #ff4d4d;
+            font-weight: 900;
         }
 
         .join-footer {
@@ -180,6 +185,14 @@
         </div>
 
         <div class="grid">
+            <div class="b-card">
+                <span class="icon-wrap">💀</span>
+                <h3>Redzone</h3>
+                <span class="ku-title">ڕێدزۆن</span>
+                <p class="desc-en">Players who are active in <span class="highlight-red">redzone</span> will receive <span class="highlight-red">1 billion salary guaranteed</span>.</p>
+                <p class="desc-ku">ئەو یاریزانانەی لە <span class="highlight-red">ڕێدزۆن</span> چالاکن، <span class="highlight-red">١ ملیار مووچەی مسۆگەر</span> وەردەگرن.</p>
+            </div>
+
             <div class="b-card">
                 <span class="icon-wrap">💸</span>
                 <h3>Benefits</h3>
