@@ -189,55 +189,56 @@
             text-shadow: 0 0 10px #ff00ff;
         }
 
-        /* --- Updated Music Player Styling --- */
+        /* --- Music Player Styling - 70% Opacity --- */
         .audio-player {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(26, 26, 46, 0.2); /* Very transparent */
-            backdrop-filter: blur(3px);
-            padding: 8px 12px;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(26, 26, 46, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 10px 15px;
             border-radius: 50px;
-            border: 1px solid rgba(138, 43, 226, 0.1);
+            border: 2px solid rgba(138, 43, 226, 0.4);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             z-index: 9999;
-            opacity: 0.2; /* Faded out by default */
-            transition: all 0.5s ease;
+            opacity: 0.7;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .audio-player:hover {
             opacity: 1;
-            background: rgba(26, 26, 46, 0.9);
-            border: 1px solid var(--primary-purple);
-            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-            transform: scale(1.05);
+            background: rgba(26, 26, 46, 0.95);
+            border-color: #ff00ff;
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.3);
+            transform: scale(1.1);
         }
 
         .play-btn {
             background: var(--blast-gradient);
             border: none;
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             color: white;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 10px;
+            font-size: 12px;
+            transition: 0.3s;
         }
 
         #volume-slider {
-            width: 0; /* Hidden until hover */
+            width: 0;
             transition: width 0.4s ease;
             cursor: pointer;
-            accent-color: var(--primary-purple);
+            accent-color: #ff00ff;
         }
 
         .audio-player:hover #volume-slider {
-            width: 100px;
+            width: 90px;
         }
 
     </style>
@@ -327,23 +328,32 @@
         const toggleBtn = document.getElementById('audio-toggle');
         const volumeSlider = document.getElementById('volume-slider');
 
-        // Set initial volume to 30%
-        audio.volume = 0.3;
+        // Start at 0 for fade effect
+        audio.volume = 0;
 
-        // Function to start audio
+        const fadeInAudio = (targetVolume, duration) => {
+            const step = targetVolume / (duration / 50);
+            const interval = setInterval(() => {
+                if (audio.volume < targetVolume) {
+                    audio.volume = Math.min(audio.volume + step, 1);
+                } else {
+                    clearInterval(interval);
+                }
+            }, 50);
+        };
+
         const startAudio = () => {
             audio.play().then(() => {
                 toggleBtn.textContent = '⏸';
-                // Remove the listener once music starts
+                fadeInAudio(0.3, 3000); // Fade to 30% over 3 seconds
                 window.removeEventListener('click', startAudio);
-            }).catch(err => console.log("Waiting for user interaction..."));
+            }).catch(err => console.log("User interaction required."));
         };
 
-        // Start music when user clicks anywhere on the page
         window.addEventListener('click', startAudio);
 
         toggleBtn.addEventListener('click', (e) => {
-            e.stopPropagation(); // Prevents the window click listener from firing
+            e.stopPropagation(); 
             if (audio.paused) {
                 audio.play();
                 toggleBtn.textContent = '⏸';
@@ -355,8 +365,7 @@
 
         volumeSlider.addEventListener('input', (e) => {
             audio.volume = e.target.value;
-            // If they slide to 0, show play icon, otherwise show pause
-            toggleBtn.textContent = audio.volume === 0 ? '▶' : '⏸';
+            toggleBtn.textContent = audio.volume == 0 ? '▶' : '⏸';
         });
     </script>
 
