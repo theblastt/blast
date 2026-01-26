@@ -189,9 +189,69 @@
             text-shadow: 0 0 10px #ff00ff;
         }
 
+        /* --- Updated Music Player Styling --- */
+        .audio-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(26, 26, 46, 0.2); /* Very transparent */
+            backdrop-filter: blur(3px);
+            padding: 8px 12px;
+            border-radius: 50px;
+            border: 1px solid rgba(138, 43, 226, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 9999;
+            opacity: 0.2; /* Faded out by default */
+            transition: all 0.5s ease;
+        }
+
+        .audio-player:hover {
+            opacity: 1;
+            background: rgba(26, 26, 46, 0.9);
+            border: 1px solid var(--primary-purple);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+            transform: scale(1.05);
+        }
+
+        .play-btn {
+            background: var(--blast-gradient);
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+        }
+
+        #volume-slider {
+            width: 0; /* Hidden until hover */
+            transition: width 0.4s ease;
+            cursor: pointer;
+            accent-color: var(--primary-purple);
+        }
+
+        .audio-player:hover #volume-slider {
+            width: 100px;
+        }
+
     </style>
 </head>
 <body>
+
+    <audio id="bg-audio" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="audio-player">
+        <button class="play-btn" id="audio-toggle">⏸</button>
+        <input type="range" id="volume-slider" min="0" max="1" step="0.01" value="0.3">
+    </div>
 
     <nav>
         <a href="#home">Home</a>
@@ -231,29 +291,24 @@
         <section id="about" class="content-section">
             <div class="card">
                 <h2>About Us / دەربارەی ئێمە</h2>
-                
                 <div class="about-list">
                     <div class="about-item">
                         <span class="label-en">🛡️ Loyalty:</span>
                         <span class="text-ku">وەفاداری: ئێمە یەک خێزانین.</span>
                     </div>
-
                     <div class="about-item">
                         <span class="label-en">🤫 Trust:</span>
                         <span class="text-ku">متمانە: لە خوێنماندایە.</span>
                     </div>
-
                     <div class="about-item">
                         <span class="label-en">👑 Respect:</span>
                         <span class="text-ku">ڕێزگرتن: کاری لە پێشینەمانە.</span>
                     </div>
-
                     <div class="about-item">
                         <span class="label-en">🎨 Blast:</span>
                         <span class="text-ku">بلاست: خوێنمان مۆرە.</span>
                     </div>
                 </div>
-                
             </div>
         </section>
     </div>
@@ -266,6 +321,44 @@
         CREDITS: 
         <img src="qazo.jpg" alt="Dev" class="dev-icon"> <span class="dev-name">qazo</span>
     </div>
+
+    <script>
+        const audio = document.getElementById('bg-audio');
+        const toggleBtn = document.getElementById('audio-toggle');
+        const volumeSlider = document.getElementById('volume-slider');
+
+        // Set initial volume to 30%
+        audio.volume = 0.3;
+
+        // Function to start audio
+        const startAudio = () => {
+            audio.play().then(() => {
+                toggleBtn.textContent = '⏸';
+                // Remove the listener once music starts
+                window.removeEventListener('click', startAudio);
+            }).catch(err => console.log("Waiting for user interaction..."));
+        };
+
+        // Start music when user clicks anywhere on the page
+        window.addEventListener('click', startAudio);
+
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevents the window click listener from firing
+            if (audio.paused) {
+                audio.play();
+                toggleBtn.textContent = '⏸';
+            } else {
+                audio.pause();
+                toggleBtn.textContent = '▶';
+            }
+        });
+
+        volumeSlider.addEventListener('input', (e) => {
+            audio.volume = e.target.value;
+            // If they slide to 0, show play icon, otherwise show pause
+            toggleBtn.textContent = audio.volume === 0 ? '▶' : '⏸';
+        });
+    </script>
 
 </body>
 </html>
